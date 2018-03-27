@@ -1,0 +1,12 @@
+{
+    "name": "PIANODE",
+    "description": "Pierron Afficheur Numérique Organiseur Didactique",
+    "version": "0.0.1",
+    "dependencies": {},
+    "node-red": {
+        "settings": {
+            "flowFile": "flows_PI-ONDES.json",
+            "credentialsFile": "flows_PI-ONDES_cred.json"
+        }
+    }
+}
