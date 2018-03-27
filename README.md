@@ -5,5 +5,17 @@ Pierron Afficheur Numérique Organiseur Didactique
 
 ### About
 
-This is your project's README.md file. It helps users understand what your
-project does, how to use it and anything else they may need to know.
+Afficheur Numérique Didactique 
+
+
+pour visualisation appareils de mesure divers
+
+
+A base de 
+- raspberry pi
+- node-red
+- ESP8266
+- produits PIERRON (mesura2 et autres)
+
+
+www.pierron.fr
