@@ -1,0 +1,60 @@
+2018-04-01 16:06:09,052 - INFO - my_logging logger is started. Console : DEBUG. File (pianode.log) : INFO
+2018-04-01 16:06:09,053 - ERROR - Error openning spi bus 0
+2018-04-01 16:06:09,094 - ERROR -   File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "/home/pi/Devlopp/GitHub/PIANODE/python/pianode_rpi.py", line 35, in __init__
+    except socket.error:
+
+2018-04-01 16:06:09,095 - ERROR - <type 'exceptions.NameError'> - global name 'socket' is not defined
+2018-04-01 16:08:40,599 - INFO - my_logging logger is started. Console : DEBUG. File (pianode.log) : INFO
+2018-04-01 16:08:40,602 - ERROR - Error openning spi bus 0
+2018-04-01 16:08:40,611 - ERROR - Mqtt server : Connection refused
+2018-04-01 16:08:40,659 - ERROR -   File "pianode.py", line 29, in <module>
+    Pianode.runforever()
+  File "/home/pi/Devlopp/GitHub/PIANODE/python/pianode_rpi.py", line 58, in runforever
+    device.device_io.add_thread(device.on_device_value_change)
+  File "../../../FGPIO/FGPIO/device_io.py", line 69, in add_thread
+    assert (not self.thread), 'input_device_io has already a thread'
+
+2018-04-01 16:08:40,665 - ERROR - <type 'exceptions.AttributeError'> - 'mcp3201_hspi_io' object has no attribute 'thread'
+2018-04-01 16:13:21,307 - INFO - my_logging logger is started. Console : DEBUG. File (pianode.log) : INFO
+2018-04-01 16:13:21,311 - ERROR - Error openning spi bus 0
+2018-04-01 16:13:21,321 - ERROR - Mqtt server : Connection refused
+2018-04-01 16:13:21,370 - ERROR -   File "pianode.py", line 29, in <module>
+    Pianode.runforever()
+  File "/home/pi/Devlopp/GitHub/PIANODE/python/pianode_rpi.py", line 58, in runforever
+    device.device_io.add_thread(device.on_device_value_change)
+  File "../../../FGPIO/FGPIO/device_io.py", line 71, in add_thread
+    discard = self.discard
+
+2018-04-01 16:13:21,375 - ERROR - <type 'exceptions.AttributeError'> - 'mcp3201_hspi_io' object has no attribute 'discard'
+2018-04-01 16:17:54,564 - INFO - my_logging logger is started. Console : DEBUG. File (pianode.log) : INFO
+2018-04-01 16:17:54,569 - ERROR - Error openning spi bus 0
+2018-04-01 16:17:54,577 - ERROR - Mqtt server : Connection refused
+2018-04-01 16:17:54,586 - INFO - f_thread read_thread started.
+2018-04-01 16:17:55,899 - ERROR -   File "../../../FGPIO/FGPIO/f_thread.py", line 40, in run
+    self.fonction(*self.args, **self.kwargs)
+  File "../../../FGPIO/FGPIO/device_io.py", line 83, in read_thread
+    value = self.read()
+  File "../../../FGPIO/FGPIO/pin_io.py", line 77, in read
+    return self.get()
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 53, in get
+    result = self.ship.xfer2(0,0) # read the two first bytes
+
+2018-04-01 16:17:55,971 - ERROR - <type 'exceptions.AttributeError'> - 'mcp3201_hspi_io' object has no attribute 'ship'
+2018-04-01 16:18:05,576 - INFO - Send terminated order to <f_thread(Thread-1, stopped 1985139824)>
+2018-04-01 16:30:36,929 - INFO - my_logging logger is started. Console : DEBUG. File (pianode.log) : INFO
+2018-04-01 16:30:36,933 - ERROR - Error openning spi bus 0
+2018-04-01 16:30:36,946 - ERROR - Mqtt server : Connection refused
+2018-04-01 16:30:36,953 - INFO - f_thread read_thread started.
+2018-04-01 16:30:40,451 - ERROR -   File "../../../FGPIO/FGPIO/f_thread.py", line 40, in run
+    self.fonction(*self.args, **self.kwargs)
+  File "../../../FGPIO/FGPIO/device_io.py", line 83, in read_thread
+    value = self.read()
+  File "../../../FGPIO/FGPIO/pin_io.py", line 77, in read
+    return self.get()
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 53, in get
+    result = self.xfer2(0,0) # read the two first bytes
+
+2018-04-01 16:30:41,052 - ERROR - <type 'exceptions.IOError'> - [Errno 9] Bad file descriptor
+2018-04-01 16:31:04,197 - INFO - Send terminated order to <f_thread(Thread-1, stopped 1984689264)>

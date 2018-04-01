@@ -1,0 +1,203 @@
+2018-04-01 15:43:03,411 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:43:03,425 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 28, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:43:03,426 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:43:41,003 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:43:41,003 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:43:41,055 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 28, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:43:41,055 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 28, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:43:41,063 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:43:41,063 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:43:47,688 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:43:47,688 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:43:47,688 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:43:47,759 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:43:47,759 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:43:47,759 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:43:47,771 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:43:47,771 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:43:47,771 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:44:07,207 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:44:07,552 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:44:07,555 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:46:11,219 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:46:11,589 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 28, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:46:11,595 - ERROR - <type 'exceptions.ImportError'> - No module named mcp3201_hspi_io
+2018-04-01 15:54:05,000 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:54:05,925 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 28, in <module>
+    from FGPIO.mcp3201_hspi_io import *
+
+2018-04-01 15:54:05,929 - ERROR - <type 'exceptions.SyntaxError'> - invalid syntax (mcp3201_hspi_io.py, line 79)
+2018-04-01 15:54:11,632 - ERROR -   File "<stdin>", line 1, in <module>
+
+2018-04-01 15:54:11,638 - ERROR - <type 'exceptions.NameError'> - name 'sys' is not defined
+2018-04-01 15:57:00,135 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:57:00,151 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 26, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+
+2018-04-01 15:57:00,156 - ERROR - <type 'exceptions.NameError'> - name 'pianode_device' is not defined
+2018-04-01 15:57:39,031 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 22, in <module>
+    from pianode_device import *
+
+2018-04-01 15:57:39,036 - ERROR - <type 'exceptions.SyntaxError'> - invalid syntax (pianode_device.py, line 42)
+2018-04-01 15:58:13,784 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 15:58:13,848 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 55, in __init__
+    self.open(bus, device)
+
+2018-04-01 15:58:13,849 - ERROR - <type 'exceptions.IOError'> - [Errno 2] No such file or directory
+2018-04-01 16:01:26,683 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:01:26,683 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:01:26,760 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 55, in __init__
+    spidev.SpiDev.__init__(self)
+
+2018-04-01 16:01:26,760 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 55, in __init__
+    spidev.SpiDev.__init__(self)
+
+2018-04-01 16:01:26,780 - ERROR - <type 'exceptions.IOError'> - [Errno 2] No such file or directory
+2018-04-01 16:01:26,780 - ERROR - <type 'exceptions.IOError'> - [Errno 2] No such file or directory
+2018-04-01 16:02:14,859 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:02:14,859 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:02:14,859 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:02:14,944 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 55, in __init__
+    try:
+
+2018-04-01 16:02:14,944 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 55, in __init__
+    try:
+
+2018-04-01 16:02:14,944 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 55, in __init__
+    try:
+
+2018-04-01 16:02:14,957 - ERROR - <type 'exceptions.IOError'> - [Errno 2] No such file or directory
+2018-04-01 16:02:14,957 - ERROR - <type 'exceptions.IOError'> - [Errno 2] No such file or directory
+2018-04-01 16:02:14,957 - ERROR - <type 'exceptions.IOError'> - [Errno 2] No such file or directory
+2018-04-01 16:02:44,685 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:02:44,744 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 58, in __init__
+    except exceptions.IOError:
+
+2018-04-01 16:02:44,748 - ERROR - <type 'exceptions.NameError'> - global name 'exceptions' is not defined
+2018-04-01 16:03:09,556 - ERROR -   File "<stdin>", line 1, in <module>
+
+2018-04-01 16:03:09,563 - ERROR - <type 'exceptions.NameError'> - name 'exceptions' is not defined
+2018-04-01 16:03:24,645 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:03:24,645 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:03:24,723 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 58, in __init__
+    except IOError:
+
+2018-04-01 16:03:24,723 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "../../../FGPIO/FGPIO/mcp3201_hspi_io.py", line 44, in __init__
+    hard_spi_client.__init__(self, bus, device)
+  File "../../../FGPIO/FGPIO/f_spi.py", line 58, in __init__
+    except IOError:
+
+2018-04-01 16:03:24,738 - ERROR - <type 'exceptions.NameError'> - global name 'exceptions' is not defined
+2018-04-01 16:03:24,738 - ERROR - <type 'exceptions.NameError'> - global name 'exceptions' is not defined
+2018-04-01 16:03:37,876 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:03:37,880 - ERROR - Error openning spi bus 0
+2018-04-01 16:03:37,907 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "pianode_device.py", line 25, in __init__
+    assert isinstance(device, FGPIO.device_io), "Invalid device. Must be de FGPIO.device_io"
+
+2018-04-01 16:03:37,911 - ERROR - <type 'exceptions.TypeError'> - isinstance() arg 2 must be a class, type, or tuple of classes and types
+2018-04-01 16:04:20,224 - ERROR -   File "<stdin>", line 1, in <module>
+
+2018-04-01 16:04:20,230 - ERROR - <type 'exceptions.NameError'> - name 'FGPIO' is not defined
+2018-04-01 16:04:33,635 - ERROR -   File "<stdin>", line 1, in <module>
+
+2018-04-01 16:04:33,639 - ERROR - <type 'exceptions.NameError'> - name 'device_io' is not defined
+2018-04-01 16:05:27,904 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:05:27,909 - ERROR - Error openning spi bus 0
+2018-04-01 16:05:27,946 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "pianode_device.py", line 25, in __init__
+    assert isinstance(device, FGPIO.device_io), "Invalid device. Must be de FGPIO.device_io"
+
+2018-04-01 16:05:27,951 - ERROR - <type 'exceptions.NameError'> - global name 'FGPIO' is not defined
+2018-04-01 16:05:42,247 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:05:42,247 - INFO - my_logging logger is started. Console : DEBUG. File (.log) : INFO
+2018-04-01 16:05:42,307 - ERROR - Error openning spi bus 0
+2018-04-01 16:05:42,307 - ERROR - Error openning spi bus 0
+2018-04-01 16:05:42,345 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "pianode_device.py", line 25, in __init__
+    assert isinstance(device, device_io), "Invalid device. Must be de FGPIO.device_io"
+
+2018-04-01 16:05:42,345 - ERROR -   File "<stdin>", line 1, in <module>
+  File "pianode.py", line 27, in <module>
+    pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+  File "pianode_device.py", line 25, in __init__
+    assert isinstance(device, device_io), "Invalid device. Must be de FGPIO.device_io"
+
+2018-04-01 16:05:42,354 - ERROR - <type 'exceptions.NameError'> - global name 'FGPIO' is not defined
+2018-04-01 16:05:42,354 - ERROR - <type 'exceptions.NameError'> - global name 'FGPIO' is not defined
