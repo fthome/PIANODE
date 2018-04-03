@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*
 '''
-Projet : Pierron Afficheur Numérique Organiseur Didactique
+Projet : Pierron Afficheur Numï¿½rique Organiseur Didactique
 Auteur : fthome@pierron.fr
 
-Gestion sur raspberry pi des entrée sorties 
-	- mcp3201 : Convirtisseur Analogique to Numérique sur protocole SPI
+Gestion sur raspberry pi des entrï¿½e sorties 
+	- mcp3201 : Convirtisseur Analogique to NumÃ©rique sur protocole SPI
 	- todo
 Envoie des information via mqtt
 
@@ -15,6 +15,7 @@ main programme
 import sys
 sys.path.insert(0,'../../../FGPIO')
 sys.path.insert(0,'../../../FUTIL')
+sys.path.insert(0,'../../../../FGPIO')
 
 from FUTIL.my_logging import *
 from FGPIO.mcp3201_hspi_io import *
@@ -24,7 +25,7 @@ from pianode_device import *
 my_logging(console_level = DEBUG, logfile_level = INFO, details = False)
 
 Pianode = pianode(devices=[
-	pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io())])
+	pianode_device("INPUT_VOLTAGE",mcp3201_hspi_io(vref=5))])
 
 Pianode.runforever()
 

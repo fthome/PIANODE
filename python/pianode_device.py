@@ -15,7 +15,7 @@ sys.path.insert(0,'../../../FGPIO')
 from FGPIO.device_io import *
 
 class pianode_device(object):
-	'''Devide object for PIANODE project
+	'''Device object for PIANODE project
 	'''
 	def __init__(self, topic, device=None):
 		'''
@@ -33,11 +33,11 @@ class pianode_device(object):
 		'''
 		self.pianode = pianode
 	
-	def on_device_value_change(self, value):
+	def on_device_value_change(self):
 		'''
 		function invoqued when value change : send mqtt value
 		'''
-		self.pianode.mqtt_send(self.topic, value)
+		self.pianode.mqtt_send(self.topic, self.device_io.to_voltage(self.device_io.th_readed())) #TODO : ce serait pas mal de pouvoir passer directement la valeur au deamon. Voir compatibilité existant!
 	
 	def stop(self):
 		'''

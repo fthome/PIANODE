@@ -55,7 +55,7 @@ class pianode(object):
 		Run the program until stop()
 		'''
 		for device in self.devices:
-			device.device_io.add_thread(device.on_device_value_change)
+			device.device_io.add_thread(device.on_device_value_change, discard=10)
 	
 	def stop(self):
 		for device in self.devices:

@@ -2,11 +2,23 @@
     "name": "PIANODE",
     "description": "Pierron Afficheur Numérique Organiseur Didactique",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+	        "serialport"   : "^6.1.1"
+		},
+	"license": "Apache-2.0",
+	"keywords": [ "node-red", "pierron" ],
     "node-red": {
         "settings": {
             "flowFile": "flows_PI-ONDES.json",
             "credentialsFile": "flows_PI-ONDES_cred.json"
-        }
+        },
+		"nodes": {
+            "pi_serialport": "./pi_node/serial/pi-serial.js"
+        },
+	    "author": {
+			"name": "Frederic Thome",
+			"email": "fthome@pierron.fr",
+			"url": "http://www.pierron.fr"
+		}
     }
 }

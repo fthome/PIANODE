@@ -1,0 +1,15 @@
+[Unit]
+Description = PIANODE : un Afficheur Numérique pour Raspberry pi et les produiuts PIERRON
+After=multi-user.target
+
+Documentation=man:cron(8)  # pour man.service 
+
+
+[Service] 
+TimeoutStartSec=0 
+ExecStart=/home/pi/.node-red/projects/PIANODE/python/pianode.sh
+User=pi
+KillMode=process
+
+[Install] 
+WantedBy=multi-user.target 

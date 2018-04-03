@@ -1,0 +1,25 @@
+{
+    "name"          : "node-red-contrib-pierron-serial",
+    "version"       : "0.0.0",
+    "description"   : "Node-RED nodes to talk to Pierron device on serial ports",
+    "dependencies"  : {
+        "serialport"   : "^6.1.1"
+    },
+    "repository" : {
+        "type":"git",
+        "url":"https://github.com/fthome/PIANODE/pi_nodes/serial"
+    },
+    "license": "Apache-2.0",
+    "keywords": [ "node-red", "pierron" ],
+    "node-red": {
+        "version": ">=0.16.0",
+        "nodes": {
+            "pi_serialport": "pi-serial.js"
+        }
+    },
+    "author": {
+        "name": "Frederic Thome",
+        "email": "fthome@pierron.fr",
+        "url": "http://www.pierron.fr"
+    }
+}
