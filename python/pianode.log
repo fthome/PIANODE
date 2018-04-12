@@ -5233,3 +5233,7 @@
 2018-04-03 18:26:50,458 - INFO - pause 1 secondes
 2018-04-03 18:26:51,497 - INFO - pause 1 secondes
 2018-04-03 18:26:52,515 - INFO - pause 1 secondes
+2018-04-05 13:01:33,953 - INFO - my_logging logger is started. Console : DEBUG. File (pianode.log) : INFO
+2018-04-05 13:01:33,965 - INFO - f_thread read_thread started.
+2018-04-05 13:01:45,605 - INFO - Send terminated order to <f_thread(Thread-1, started 1984173168)>
+2018-04-05 13:01:45,710 - INFO - read_thread stopped after 6 loops
