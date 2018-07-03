@@ -6,7 +6,7 @@
             name: {value:""},
             timer: {value:"0.1", required:true, validate:RED.validators.number()},
 			no_change_timer : {value:"5", required:true, validate:RED.validators.number()},
-			precision : {value:"0.1", required:true, validate:RED.validators.number()},
+			precision : {value:"2", required:true, validate:RED.validators.number()},
 			topic:{value:"", required : false},
         },
         inputs: 0,
@@ -22,17 +22,18 @@
 </script>
 
 <script type="text/x-red" data-template-name="Tension Douilles">
-	<div class="form-row">
+	<div id="device" class="form-row">
         <label for="node-input-device"><i class="fa fa-balance-scale"></i> Dispositif</label>
-		<select type="text" id="node-input-device" placeholder="Device plug on PIANODE" style="width: 150px;">
+		<select type="text" id="node-input-device" placeholder="Device plug on PIANODE" style="width: 150px;" onChange="update_select_device_mode()">
 			<option value = "None"> Mesure directe </option>
 			<option value = "22013"> Conductimètre MESURA 22013</option>
 			<option value = "22016"> Conductimètre MESURA 22016 </option>
 			<option value = "22017"> pH-mètre MESURA 22017</option>
 			<option value = "22018"> Oxymètre MESURA 22018</option>
-			<option value = "22020"> Wattmètre MESURA 22022</option>
+			<option value = "22020"> Colormètre MESURA 22020</option>
+			<option value = "22022"> Wattmètre MESURA 22022</option>
 			<option value = "22023"> Teslamètre MESURA 22023</option>
-			<option value = "22027"> Thermemètre MESURA 22027</option>
+			<option value = "22027"> Thermomètre MESURA 22027</option>
 			<option value = "22029"> Chronomètre MESURA 22029</option>
 			<option value = "22030"> Voltmètre MESURA 22030</option>
 			<option value = "22031"> Ampèremètre MESURA 22031</option>
@@ -40,8 +41,18 @@
 			<option value = "22033"> Luxmètre MESURA 22033</option>		
 		</select>
     </div>
+	<div id = "mode" class="form-row">
+		<label for="node-input-device_mode"><i class="fa fa-balance-scale"></i> Mode</label>
+		<select type = "text" id="node-input-device_mode" placeholder="Device mode" style="width:150px:">
+		
+		</select>
+	</div>
+	<div class="form-row">
+        <label for="node-input-unit"><i class="fa fa-repeat"></i> Unité</label>
+        <input type="text" id="node-input-unit" placeholder="Unité de la mesure (blanc = automatique)">
+    </div>
     <div class="form-row">
-        <label for="node-input-timer"><i class="fa fa-repeat"></i> Intervale de lecture(s)</label>
+        <label for="node-input-timer"><i class="fa fa-repeat"></i> Intervale entre chaque mesures</label>
         <input type="text" id="node-input-timer" placeholder="Temps entre chaque mesure">
     </div>
     <div class="form-row">
@@ -49,12 +60,12 @@
         <input type="text" id="node-input-no_change_timer" placeholder="Temps à partir duquel une mesure est renvoyée, même si elle n'a pas changée">
     </div>
 	<div class="form-row">
-        <label for="node-input-precision"><i class="fa fa-repeat"></i> Précision (V)</label>
+        <label for="node-input-precision"><i class="fa fa-repeat"></i> Précision (%)</label>
         <input type="text" id="node-input-precision" placeholder="En dessous de cette precision, la valeur n'est pas forcement retournée">
     </div>
 	<div class="form-row">
       <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
-      <input type="text" id="node-input-topic" />
+      <input type="text" id="node-input-topic" placeholder="ex : 'PIERRON\DOUILLES\TENSION'"/>
 	</div>
 	<div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
@@ -79,8 +90,12 @@
     </ol>
 	<h3>Details</h3>
 		<dl class="message-properties">
-			<dt>Bus SPI</dt>
-			<dd>Device Linux du bus spi. Ex : /dev/spidev0.0</dd>
+			<dt>Dispositif</dt>
+			<dd>Appareil de mesure relié au bornes du PIANODE</dd>
+			<dt>Mode</dt>
+			<dd>Mode de l'appareil</dd>
+			<dt>Unité</dt>
+			<dd>Unité (laisser blanc pour unité selon appareil et mode)</dd>
 			<dt>Intervale de lecture</dt>
 			<dd>Temps entre chaque mesure en secondes (defaut 0.1s).</dd>
 			<dt>Interval si pas de changement (s)</dt>
@@ -92,4 +107,56 @@
 			<dt>Name</dt>
 			<dd> Facultatif</dd>
 		</dl>
+</script>
+
+<script language="javascript">
+function update_select_device_mode(){ 
+	var node_input_device = document.getElementById("node-input-device"); // A revoir!!!
+	var node_input_device_mode = document.getElementById("node-input-device_mode"); // A revoir!!!
+	while (node_input_device_mode.length>0){
+		node_input_device_mode.remove(0)
+	}
+	switch (node_input_device.options[node_input_device.selectedIndex].value){
+		case "22018":
+			node_input_device_mode.options[0] = new Option('Mesure %','MesureP'); 
+			node_input_device_mode.options[1] = new Option('Mesure mg/L','MesureV'); 
+			node_input_device_mode.options[2] = new Option('Consommation','Consommation'); 
+			node_input_device_mode.options[3] = new Option('Production','Production'); 
+			break;
+		case "22020":
+			node_input_device_mode.options[0] = new Option('Transmittance','Transmittance'); 
+			node_input_device_mode.options[1] = new Option('Absorbance','Absorbance'); 
+			break;
+		case "22022":
+			node_input_device_mode.options[0] = new Option('Voltmètre continu','Vdc'); 
+			node_input_device_mode.options[1] = new Option('Voltmètre alternatif','Vac'); 
+			node_input_device_mode.options[2] = new Option('Ampèremètre continu','Idc'); 
+			node_input_device_mode.options[3] = new Option('Ampèremètre alternatif','Iac'); 
+			node_input_device_mode.options[4] = new Option('Wattmètre continu','Pdc'); 
+			node_input_device_mode.options[5] = new Option('Wattmètre alternatif','Pac'); 
+			node_input_device_mode.options[6] = new Option('Joulemètre','Joule'); 
+			break;
+		case "22029":
+			node_input_device_mode.options[0] = new Option('Chrono 9.999s','Chrono_10000'); 
+			node_input_device_mode.options[1] = new Option('Chrono 99.99s','Chrono_1000'); 
+			node_input_device_mode.options[2] = new Option('Chrono 99.99s','Chrono_100'); 
+			node_input_device_mode.options[3] = new Option('Chrono 999.9s','Chrono_10'); 
+			node_input_device_mode.options[4] = new Option('Chrono 9999s','Chrono_1'); 
+			node_input_device_mode.options[5] = new Option('Compteur','Compteur'); 
+			break;
+		case "22030":
+			node_input_device_mode.options[0] = new Option('Vdc','Vdc'); 
+			node_input_device_mode.options[1] = new Option('Vac','Vac'); 
+			node_input_device_mode.options[2] = new Option('Vac+dc','Vacdc'); 
+			node_input_device_mode.options[3] = new Option('Vmax','Vmax'); 
+			node_input_device_mode.options[4] = new Option('Vmin','Vmin'); 
+			node_input_device_mode.options[5] = new Option('Vpp','Vpp'); 
+			break;
+	case "22031":
+			node_input_device_mode.options[0] = new Option('Idc (20A)','Idc20'); 
+			node_input_device_mode.options[1] = new Option('Idc (2A)','Idc2'); 
+			node_input_device_mode.options[2] = new Option('Iac (20A)','Iac20'); 
+			node_input_device_mode.options[3] = new Option('Iac (2A)','Iac2'); 
+	}	
+}
 </script>
