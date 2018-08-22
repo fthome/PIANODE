@@ -98,7 +98,8 @@ module.exports = function(RED) {
 										msg.unit = "%";
 										msg.payload = voltage / 2 * 200;
 										break;
-								}
+									}
+								break;
 							case "22020":
 								msg.device = "22020 Colormètre";
 								switch (node.device_mode){
@@ -112,6 +113,8 @@ module.exports = function(RED) {
 										msg.unit = "";
 										msg.payload = voltage / 2 * 3;
 										break;
+									}
+								break;
 							case "22022":
 								msg.device = "22022 Wattmètre";
 								switch (node.device_mode){
@@ -151,44 +154,115 @@ module.exports = function(RED) {
 										msg.payload = voltage / 2 * 9500;
 										break;
 									}
-							case "":
-								msg.label = "";
-								msg.device = "";
-								msg.unit = "";
-								msg.payload = ;
 								break;
-							case "":
-								msg.label = "";
-								msg.device = "";
-								msg.unit = "";
-								msg.payload = ;
+							case "22023":
+								msg.label = "Champ magnétique";
+								msg.device = "22023 Teslamètre";
+								msg.unit = "mT";
+								msg.payload = voltage / 2 * 200 -100;
 								break;
-							case "":
-								msg.label = "";
-								msg.device = "";
-								msg.unit = "";
-								msg.payload = ;
+							case "22027":
+								msg.label = "Température";
+								msg.device = "22027 Thermomètre";
+								msg.unit = "°C";
+								msg.payload = voltage / 2 * 230 - 50;
 								break;
-							case "":
-								msg.label = "";
-								msg.device = "";
-								msg.unit = "";
-								msg.payload = ;
+							case "22029":
+								msg.label = "Temps (chrono)";
+								msg.device = "22029 Chronomètre";
+								msg.unit = "s";
+								switch (node.device_mode){
+									case "Chrono_1000":
+										msg.payload = voltage / 2 * 9.999;
+										break;
+									case "Chrono_100":
+										msg.payload = voltage / 2 * 99.99;
+										break;
+									case "Chrono_10":
+										msg.payload = voltage / 2 * 999.9;
+										break;
+									case "Chrono_1":
+										msg.payload = voltage / 2 * 9999;
+										break;
+									case "Compteur":
+										msg.label = "Compteur";
+										msg.unit = "";
+										msg.payload = voltage / 2 * 1999;
+										break;
+									}
 								break;
-							case "":
-								msg.label = "";
-								msg.device = "";
-								msg.unit = "";
-								msg.payload = ;
+							case "22030":
+								msg.device = "22030 Voltmetre";
+								msg.unit = "V";
+								switch (node.device_mode){
+									case "Vdc":
+										msg.label = "Vdc";
+										msg.payload = voltage / 2 * 200 - 100;
+										break;
+									case "Vac":
+										msg.label = "Vac";
+										msg.payload = voltage / 2 * 100;
+										break;
+									case "Vacdc":
+										msg.label = "Vacdc";
+										msg.payload = voltage / 2 * 100;
+										break;
+									case "Vmax":
+										msg.label = "Vmax";
+										msg.payload = voltage / 2 * 280 - 140;
+										break;
+									case "Vmin":
+										msg.label = "Vmin";
+										msg.payload = voltage / 2 * 280 - 140;
+										break;
+									case "Vpp":
+										msg.label = "Vpp";
+										msg.payload = voltage / 2 * 280;
+										break;										
+									}
 								break;
-							case "":
-								msg.label = "";
-								msg.device = "";
-								msg.unit = "";
-								msg.payload = ;
+							case "22031":
+								msg.device = "22031 Ampèremètre";
+								msg.unit = "A";
+								switch (node.device_mode){
+									case "Idc20":
+										msg.label = "Idc";
+										msg.payload = voltage / 2 * 40 - 20;
+										break;
+									case "Idc2":
+										msg.label = "Idc";
+										msg.payload = voltage / 2 * 4 - 2;
+										break;
+									case "Iac20":
+										msg.label = "Iac";
+										msg.payload = voltage / 2 * 20;
+										break;
+									case "Iac2":
+										msg.label = "Iac";
+										msg.payload = voltage / 2 * 2;
+										break;
+									}
+								break;
+							case "22032":
+								msg.label = "Pression";
+								msg.device = "22032 Manomètre";
+								msg.unit = "hPa";
+								switch (node.device_mode){
+									case "P20":
+										msg.payload = voltage / 2 * 40 - 20;
+										break;
+									case "P200":
+										msg.payload = voltage / 2 * 400 - 200;
+										break;
+									}
+								break;
+							case "22033":
+								msg.label = "Luminosité";
+								msg.device = "22033 Luxmètre";
+								msg.unit = "lux";
+								msg.payload = voltage / 2 * 20000;
 								break;
 						}
-						msg.payload = voltage;
 					}
 					if (node.topic) {
 						msg.topic = node.topic;

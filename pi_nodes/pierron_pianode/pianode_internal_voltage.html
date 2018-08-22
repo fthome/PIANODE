@@ -1,0 +1,86 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Tension Douilles Local',{
+        category: 'PIANODE',
+        color: "#C7E9C0",
+        defaults: {
+            name : {value:""},
+            timer : {value:"0.1", required:true, validate:RED.validators.number()},
+			no_change_timer : {value:"5", required:true, validate:RED.validators.number()},
+			precision : {value:"2", required:true, validate:RED.validators.number()},
+			topic : {value:"", required : false},
+			unit : {value:"", required : false},
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "pierron.png",
+        label: function() {
+            return this.name || "Tension douilles";
+        },
+        labelStyle: function() {
+            return this.name ? "node_label_italic" : "";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="Tension Douilles Local">
+	<div class="form-row">
+        <label for="node-input-unit"><i class="fa fa-repeat"></i> Unité</label>
+        <input type="text" id="node-input-unit" placeholder="Unité de la mesure (blanc = automatique)">
+    </div>
+    <div class="form-row">
+        <label for="node-input-timer"><i class="fa fa-repeat"></i> Intervale entre chaque mesures (s)</label>
+        <input type="text" id="node-input-timer" placeholder="Temps entre chaque mesure">
+    </div>
+	<div class="form-row">
+        <label for="node-input-no_change_timer"><i class="fa fa-repeat"></i> Interval si pas de changement (s)</label>
+        <input type="text" id="node-input-no_change_timer" placeholder="Temps à partir duquel une mesure est renvoyée, même si elle n'a pas changée">
+    </div>
+	<div class="form-row">
+        <label for="node-input-precision"><i class="fa fa-repeat"></i> Précision (%)</label>
+        <input type="text" id="node-input-precision" placeholder="En dessous de cette precision, la valeur n'est pas forcement retournée">
+    </div>
+	<div class="form-row">
+      <label for="node-input-topic"><i class="fa fa-tag"></i> Topic</label>
+      <input type="text" id="node-input-topic" placeholder="ex : 'PIERRON\DOUILLES\TENSION'"/>
+	</div>
+	<div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Tension Douilles Local">
+	<p>Renvoie la tension aux bornes des douilles du PIANODE</p>
+	<h3>Output</h3>
+	<ol class="node-ports">
+                <dl class="message-properties">
+                    <dt>payload <span class="property-type">number</span></dt>
+                    <dd>
+                        <p>La tension</p>
+                    </dd>
+					<dt>DATAS <span class="property-type">number</span></dt>
+                    <dd>
+                        <p>{"tension" : La tension}</p>
+                    </dd>
+					<dt>MODELE <span class="property-type">number</span></dt>
+                    <dd>
+                        <p>{"ID":"local", "MODELE":"33000"}</p>
+                    </dd>
+                </dl>
+    </ol>
+	<h3>Details</h3>
+		<dl class="message-properties">
+			<dt>Unité</dt>
+			<dd>Unité (facultatif)</dd>
+			<dt>Intervale de lecture</dt>
+			<dd>Temps entre chaque mesure en secondes (defaut 0.1s).</dd>
+			<dt>Interval si pas de changement (s)</dt>
+			<dd>Temps à partir duquel une mesure est renvoyée, même si elle n'a pas changée</dd>
+			<dt>Précision</dt>
+			<dd>Si la variation de tension est inférieur à cette valeur, elle n'est pas retournée (sauf l'interval si changement est dépassé)</dd>
+			<dt>Topic</dt>
+			<dd>Facultatif. Si existe <code>msg.topig</code> est renseigné</dd>
+			<dt>Name</dt>
+			<dd> Facultatif</dd>
+		</dl>
+</script>

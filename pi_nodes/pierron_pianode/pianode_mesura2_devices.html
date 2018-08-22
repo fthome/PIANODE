@@ -1,22 +1,20 @@
 <script type="text/javascript">
-    RED.nodes.registerType('Tension Douilles',{
+    RED.nodes.registerType('Pierron Mesura2',{
         category: 'PIANODE',
         color: "#C7E9C0",
         defaults: {
             name : {value:""},
-            timer : {value:"0.1", required:true, validate:RED.validators.number()},
 			no_change_timer : {value:"5", required:true, validate:RED.validators.number()},
 			precision : {value:"2", required:true, validate:RED.validators.number()},
 			topic : {value:"", required : false},
 			device : {value:"None", required : true},
 			device_mode : {value:"", required : false},
-			unit : {value:"", required : false},
         },
-        inputs: 0,
+        inputs: 1,
         outputs: 1,
         icon: "pierron.png",
         label: function() {
-            return this.name || this.device || "Tension douilles";
+            return this.name || this.device || "Pierron Mesura2";
         },
         labelStyle: function() {
             return this.name ? "node_label_italic" : "";
@@ -24,7 +22,7 @@
     });
 </script>
 
-<script type="text/x-red" data-template-name="Tension Douilles">
+<script type="text/x-red" data-template-name="Pierron Mesura2">
 	<div id="device" class="form-row">
         <label for="node-input-device"><i class="fa fa-balance-scale"></i> Dispositif</label>
 		<select type="text" id="node-input-device" placeholder="Device plug on PIANODE" style="width: 150px;" onChange="update_select_device_mode()">
@@ -47,14 +45,6 @@
 		<select type = "text" id="node-input-device_mode" placeholder="Device mode" style="width:150px:">
 		</select>
 	</div>
-	<div class="form-row">
-        <label for="node-input-unit"><i class="fa fa-repeat"></i> Unité</label>
-        <input type="text" id="node-input-unit" placeholder="Unité de la mesure (blanc = automatique)">
-    </div>
-    <div class="form-row">
-        <label for="node-input-timer"><i class="fa fa-repeat"></i> Intervale entre chaque mesures</label>
-        <input type="text" id="node-input-timer" placeholder="Temps entre chaque mesure">
-    </div>
     <div class="form-row">
         <label for="node-input-no_change_timer"><i class="fa fa-repeat"></i> Interval si pas de changement (s)</label>
         <input type="text" id="node-input-no_change_timer" placeholder="Temps à partir duquel une mesure est renvoyée, même si elle n'a pas changée">
@@ -74,11 +64,15 @@
 </script>
 
 <script type="text/x-red" data-help-name="Tension Douilles">
-	<p>Renvoie la tension aux bornes des douilles du PIANODE</p>
+	<p>Transforme les données issus des appareils Pierrons Mesura 2 branchés sur:</p>
 	<ul>
-		<li>Quand la tension change</li>
-		<li>Après un certain temps</li>
+		<li>Tension Douilles</li>
+		<li>PI_IOT via USB</li>
+		<li>PI_IOT via MQTT</li>
 	</ul>
+	<p> en données exploitables.</p>
+	<h3>Inputs</h3>
+	<p>{DATAS:{{mesure1:val1,unit:unit1},{mesure2:val2,unit:unit2}...},MODELE:{ID:xxx,VERSION:xxx,MODELE:xxx}}</p>
 	<h3>Output</h3>
 	<ol class="node-ports">
                 <dl class="message-properties">
@@ -86,18 +80,18 @@
                     <dd>
                         <p>La tension</p>
                     </dd>
+					<dt>unit <span class="property-type">number</span></dt>
+                    <dd>
+                        <p>L'unité</p>
+                    </dd>
                 </dl>
     </ol>
 	<h3>Details</h3>
 		<dl class="message-properties">
 			<dt>Dispositif</dt>
-			<dd>Appareil de mesure relié au bornes du PIANODE</dd>
+			<dd>Appareil de mesure relié au dispositif de lecture (Douilles, usb, mqtt)</dd>
 			<dt>Mode</dt>
 			<dd>Mode de l'appareil</dd>
-			<dt>Unité</dt>
-			<dd>Unité (laisser blanc pour unité selon appareil et mode)</dd>
-			<dt>Intervale de lecture</dt>
-			<dd>Temps entre chaque mesure en secondes (defaut 0.1s).</dd>
 			<dt>Interval si pas de changement (s)</dt>
 			<dd>Temps à partir duquel une mesure est renvoyée, même si elle n'a pas changée</dd>
 			<dt>Précision</dt>
