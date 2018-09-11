@@ -2,6 +2,7 @@ module.exports = function(RED) {
 
 	const VREF = 2; // Sortie Mesura 0-2V
 	const VHIGH = 5; // Voltage critique
+	const PRECISION_VOLTAGE = 0.004; // Précision de la mesure = 4mV
 	
     function pianode_mesura2(config) {
         RED.nodes.createNode(this, config);
@@ -81,24 +82,28 @@ module.exports = function(RED) {
 							msg.unit = "V";
 							msg.payload = voltage;
 							voltage_max = VHIGH;
+							msg.precision = PRECISION_VOLTAGE;
 							break;
 						case "22013":
 							msg.label = "Conductivité";
 							msg.MODELE.MODELE = "22013 Conductimètre";
 							msg.unit = "mS/cm";
 							msg.payload = voltage / 1.95 * 200;
+							msg.precision = PRECISION_VOLTAGE / 1.95 * 200;
 							break;
 						case "22016":
 							msg.label = "Conductivité";
 							msg.MODELE.MODELE = "22016 Conductimètre";
 							msg.unit = "mS/cm";
 							msg.payload = voltage / 1.95 * 200;
+							msg.precision = PRECISION_VOLTAGE / 1.95 * 200;
 							break;
 						case "22017":
 							msg.label = "pH";
 							msg.MODELE.MODELE = "22017 pH-mètre";
 							msg.unit = "";
 							msg.payload = voltage / 2 * 14;
+							msg.precision = PRECISION_VOLTAGE / 2 * 14;
 							break;
 						case "22018":
 							msg.MODELE.MODELE = "22018 Oxymètre";
@@ -107,21 +112,25 @@ module.exports = function(RED) {
 									msg.label = "%O2";
 									msg.unit = "%";
 									msg.payload = voltage / 2 * 100;
+									msg.precision = PRECISION_VOLTAGE / 2 * 100;
 									break;
 								case "MesureV":
 									msg.label = "Concentration O2";
 									msg.unit = "mg/L";
 									msg.payload = voltage / 2 * 45;
+									msg.precision = PRECISION_VOLTAGE / 2 * 45;
 									break;
 								case "Consommation":
 									msg.label = "Consommation";
 									msg.unit = "%";
 									msg.payload = voltage / 2 * 100;
+									msg.precision = PRECISION_VOLTAGE / 2 * 100;
 									break;
 								case "Production":
 									msg.label = "Production";
 									msg.unit = "%";
 									msg.payload = voltage / 2 * 200;
+									msg.precision = PRECISION_VOLTAGE / 2 * 200;
 									break;
 								}
 							break;
@@ -132,11 +141,13 @@ module.exports = function(RED) {
 									msg.label = "Transmittance";
 									msg.unit = "%";
 									msg.payload = voltage / 2 * 100;
+									msg.precision = PRECISION_VOLTAGE / 2 * 100;
 									break;
 								case "Absorbance":
 									msg.label = "Absorbance";
 									msg.unit = "";
 									msg.payload = voltage / 2 * 3;
+									msg.precision = PRECISION_VOLTAGE / 2 * 3;
 									break;
 								}
 							break;
@@ -147,36 +158,43 @@ module.exports = function(RED) {
 									msg.label = "Tension (DC)";
 									msg.unit = "V";
 									msg.payload = voltage / 2 * 120 - 60;
+									msg.precision = PRECISION_VOLTAGE / 2 * 120;
 									break;
 								case "Vac":
 									msg.label = "Tension (AC)";
 									msg.unit = "V";
 									msg.payload = voltage / 2 * 30;
+									msg.precision = PRECISION_VOLTAGE / 2 * 30;
 									break;
 								case "Idc":
 									msg.label = "Intensité (DC)";
 									msg.unit = "A";
 									msg.payload = volatage / 2 * 10 -5;
+									msg.precision = PRECISION_VOLTAGE / 2 * 10;
 									break;
 								case "Iac":
 									msg.label = "Intensité (AC)";
 									msg.unit = "A";
 									msg.payload = voltage / 2 * 5;
+									msg.precision = PRECISION_VOLTAGE / 2 * 5;
 									break;
 								case "Pdc":
 									msg.label = "Puissance (DC)";
 									msg.unit = "W";
 									msg.payload = voltage / 2 * 350;
+									msg.precision = PRECISION_VOLTAGE / 2 * 350;
 									break;
 								case "Pac":
 									msg.label = "Puissance (AC)";
 									msg.unit = "W";
 									msg.payload = voltage / 2 * 200;
+									msg.precision = PRECISION_VOLTAGE / 2 * 200;
 									break;
 								case "Joule":
 									msg.label = "Energie";
 									msg.unit = "J";
 									msg.payload = voltage / 2 * 9500;
+									msg.precision = PRECISION_VOLTAGE / 2 * 9500;
 									break;
 								}
 							break;
@@ -185,12 +203,14 @@ module.exports = function(RED) {
 							msg.MODELE.MODELE = "22023 Teslamètre";
 							msg.unit = "mT";
 							msg.payload = voltage / 2 * 200 -100;
+							msg.precision = PRECISION_VOLTAGE / 2 * 200;
 							break;
 						case "22027":
 							msg.label = "Température";
 							msg.MODELE.MODELE = "22027 Thermomètre";
 							msg.unit = "°C";
 							msg.payload = voltage / 2 * 230 - 50;
+							msg.precision = PRECISION_VOLTAGE / 2 * 230;
 							break;
 						case "22029":
 							msg.label = "Temps (chrono)";
@@ -199,20 +219,25 @@ module.exports = function(RED) {
 							switch (node.device_mode){
 								case "Chrono_1000":
 									msg.payload = voltage / 2 * 9.999;
+									msg.precision = PRECISION_VOLTAGE / 2 * 9.999;
 									break;
 								case "Chrono_100":
 									msg.payload = voltage / 2 * 99.99;
+									msg.precision = PRECISION_VOLTAGE / 2 * 99.99;
 									break;
 								case "Chrono_10":
 									msg.payload = voltage / 2 * 999.9;
+									msg.precision = PRECISION_VOLTAGE / 2 * 999.9
 									break;
 								case "Chrono_1":
 									msg.payload = voltage / 2 * 9999;
+									msg.precision = PRECISION_VOLTAGE / 2 * 9999;
 									break;
 								case "Compteur":
 									msg.label = "Compteur";
 									msg.unit = "";
 									msg.payload = voltage / 2 * 1999;
+									msg.precision = PRECISION_VOLTAGE / 2 * 1999;
 									break;
 								}
 							break;
@@ -223,26 +248,32 @@ module.exports = function(RED) {
 								case "Vdc":
 									msg.label = "Vdc";
 									msg.payload = voltage / 2 * 200 - 100;
+									msg.precision = PRECISION_VOLTAGE / 2 * 200;
 									break;
 								case "Vac":
 									msg.label = "Vac";
 									msg.payload = voltage / 2 * 100;
+									msg.precision = PRECISION_VOLTAGE / 2 * 100;
 									break;
 								case "Vacdc":
 									msg.label = "Vacdc";
 									msg.payload = voltage / 2 * 100;
+									msg.precision = PRECISION_VOLTAGE / 2 * 100;
 									break;
 								case "Vmax":
 									msg.label = "Vmax";
 									msg.payload = voltage / 2 * 280 - 140;
+									msg.precision = PRECISION_VOLTAGE / 2 * 280;
 									break;
 								case "Vmin":
 									msg.label = "Vmin";
 									msg.payload = voltage / 2 * 280 - 140;
+									msg.precision = PRECISION_VOLTAGE / 2 * 280;
 									break;
 								case "Vpp":
 									msg.label = "Vpp";
 									msg.payload = voltage / 2 * 280;
+									msg.precision = PRECISION_VOLTAGE / 2 * 280
 									break;										
 								}
 							break;
@@ -253,18 +284,22 @@ module.exports = function(RED) {
 								case "Idc20":
 									msg.label = "Idc";
 									msg.payload = voltage / 2 * 40 - 20;
+									msg.precision = PRECISION_VOLTAGE / 2 * 40;
 									break;
 								case "Idc2":
 									msg.label = "Idc";
 									msg.payload = voltage / 2 * 4 - 2;
+									msg.precision = PRECISION_VOLTAGE / 2 * 4;
 									break;
 								case "Iac20":
 									msg.label = "Iac";
 									msg.payload = voltage / 2 * 20;
+									msg.precision = PRECISION_VOLTAGE / 2 * 20;
 									break;
 								case "Iac2":
 									msg.label = "Iac";
 									msg.payload = voltage / 2 * 2;
+									msg.precision = PRECISION_VOLTAGE;
 									break;
 								}
 							break;
@@ -275,9 +310,11 @@ module.exports = function(RED) {
 							switch (node.device_mode){
 								case "P20":
 									msg.payload = voltage / 2 * 40 - 20;
+									msg.precision = PRECISION_VOLTAGE / 2 * 40;
 									break;
 								case "P200":
 									msg.payload = voltage / 2 * 400 - 200;
+									msg.precision = PRECISION_VOLTAGE / 2 * 400;
 									break;
 								}
 							break;
@@ -286,8 +323,23 @@ module.exports = function(RED) {
 							msg.MODELE.MODELE = "22033 Luxmètre";
 							msg.unit = "lux";
 							msg.payload = voltage / 2 * 20000;
+							msg.precision = PRECISION_VOLTAGE / 2 * 20000;
 							break;
+					}
+					if (msg.precision){
+						if (msg.precision > 0.6){
+							msg.precision = 1;
+						}else if(msg.precision > 0.2){
+							msg.precision = 0.5;
+						}else if (msg.precision > 0.06){
+							msg.precision = 0.1;
+						}else if (msg.precision > 0.02){
+							msg.precision = 0.05;
+						} else{
+							msg.precision = 0.01;
 						}
+						msg.payload = Math.floor(msg.payload / msg.precision + 0.5)*msg.precision;
+					}
 					if (voltage>voltage_max){
 						node.status({fill:"red",shape:"dot",text:msg.label+" ALERTE"});
 						msg.payload = 999;
